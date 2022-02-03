@@ -340,7 +340,7 @@ export const Block: React.FC<Block> = props => {
         return <div className="notion-row">{children}</div>;
       case "column":
         const spacerWith = 46;
-        const ratio = blockValue.format.column_ratio;
+        const ratio = blockValue?.format?.column_ratio || 1;
         const columns = Number((1 / ratio).toFixed(0));
         const spacerTotalWith = (columns - 1) * spacerWith;
         const width = `calc((100% - ${spacerTotalWith}px) * ${ratio})`;
